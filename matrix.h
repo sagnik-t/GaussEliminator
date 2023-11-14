@@ -20,6 +20,12 @@ public:
     Matrix(const std::vector<std::vector<T>>& v) : rows(v.size()), cols(v[0].size()), matrix(v)
     {}
 
+    //getters
+    size_t rows() const
+    {return this->rows;}
+    size_t cols() const
+    {return this->cols;}
+
     Matrix operator+(const Matrix& other) const;
     Matrix operator-(const Matrix& other) const;
     Matrix operator*(const int& k) const;
