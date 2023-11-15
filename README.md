@@ -5,4 +5,4 @@ GaussEliminator is a small-time project that can be used to solve systems of lin
 This project's backbone is a custom built matrix class that currently, has a few basic operations necessary for the GEA. Further operations such as Strassen' matrix multiplication can also be implemeneted.
 
 #### References
-You can find the pseudocode and underlying mathematical theory used for the GEA implementation in the "docs" subdirectory.
+You can find the pseudocode and underlying mathematical theory used for the GEA implementation in the [docs](docs) subdirectory. Additionally, you can find the conventions used in the pseudocode in the [conventions.md](docs/conventions.md) file.
