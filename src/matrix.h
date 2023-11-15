@@ -26,6 +26,7 @@ public:
     size_t cols() const
     {return this->cols;}
 
+    //operations overloads
     Matrix operator+(const Matrix& other) const;
     Matrix operator-(const Matrix& other) const;
     Matrix operator*(const int& k) const;
@@ -80,6 +81,7 @@ std::vector<T> Matrix<T>::operator[](const int& row) const
     return this->matrix[row];
 }
 
+//interchange columns
 template<class T>
 void Matrix<T>::swap(const int& row1, const int& row2)
 {
@@ -105,9 +107,7 @@ void Matrix<T>::print(const Matrix& mat)
     for (int i = 0; i < mat.rows; ++i)
     {
         for (int j = 0; j < mat.cols; ++j)
-        {
             std::cout << mat[i][j] << " ";
-        }
         std::cout << std::endl;
     }
 }

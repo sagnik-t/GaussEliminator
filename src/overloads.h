@@ -1,3 +1,5 @@
+/*This header file provides basic arithmetic operator overloads for the vector class*/
+
 #pragma once
 
 #ifndef OVERLOADS_H
