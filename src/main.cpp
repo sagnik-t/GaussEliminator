@@ -7,3 +7,13 @@
 #include "matrix.h"
 using namespace std;
 
+class GaussianElimination
+{
+private:
+    Matrix<double> matrix;
+
+public:
+    GaussianElimination(Matrix<double> matrix) : matrix(matrix)
+    {}
+    
+};
