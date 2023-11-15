@@ -6,3 +6,8 @@ This project's backbone is a custom built matrix class that currently, has a few
 
 #### References
 You can find the pseudocode and underlying mathematical theory used for the GEA implementation in the [docs](docs) subdirectory. Additionally, you can find the conventions used in the pseudocode in the [conventions.md](docs/conventions.md) file.
+
+### Planned Features
+- Building a web interface for GaussEliminator
+- Using Emscripten to compile C++ to WebAssembly(Wasm)
+- Integrating Wasm module within a JS backend
