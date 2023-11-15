@@ -21,3 +21,6 @@
 		for row=curr_row+1 to matrix.rows - 1:
 			scale = matrix[row][pivot_col]/matrix[pivot][pivot_col]
 			matrix[row] = matrix[row] - scale * matrix[pivot]
+
+##### storing the pivot positions
+		pivots.append(PAIR(curr_row, pivot_col))
