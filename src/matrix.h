@@ -32,6 +32,7 @@ public:
     Matrix operator*(const int& k) const;
     Matrix operator/(const int& k) const;
     std::vector<T> operator[](const int& row) const;
+    std::vector<T> col(const int &col) const;
 
     void swap(const int& row1, const int& row2);
 
@@ -79,6 +80,19 @@ template<class T>
 std::vector<T> Matrix<T>::operator[](const int& row) const
 {
     return this->matrix[row];
+}
+
+template<class T>
+std::vector<T> Matrix<T>::col(const int &col) const
+{
+    if (col >= this->cols)
+        throw std::out_of_range("Column index out of bounds");
+
+    std::vector<T> column;
+    for (int row = 0; row < this->rows; row++)
+        column.push_back(this->matrix[row][col]);
+    
+    return column;
 }
 
 //interchange columns
