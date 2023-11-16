@@ -29,8 +29,8 @@ public:
     //operations overloads
     Matrix operator+(const Matrix& other) const;
     Matrix operator-(const Matrix& other) const;
-    Matrix operator*(const int& k) const;
-    Matrix operator/(const int& k) const;
+    Matrix operator*(const T& k) const;
+    Matrix operator/(const T& k) const;
     std::vector<T> operator[](const int& row) const;
     std::vector<T> col(const int &col) const;
 
@@ -59,7 +59,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix& other) const
 }
 
 template<class T>
-Matrix<T> Matrix<T>::operator*(const int& k) const
+Matrix<T> Matrix<T>::operator*(const T& k) const
 {
     Matrix<T> result(rows, cols);
     for (int row = 0; row < rows; row++)
@@ -68,7 +68,7 @@ Matrix<T> Matrix<T>::operator*(const int& k) const
 }
 
 template<class T>
-Matrix<T> Matrix<T>::operator/(const int& k) const
+Matrix<T> Matrix<T>::operator/(const T& k) const
 {
     Matrix<T> result(rows, cols);
     for (int row = 0; row < rows; row++)
