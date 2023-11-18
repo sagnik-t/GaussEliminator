@@ -2,7 +2,6 @@
 #include <functional>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 #include "overloads.h"
 #include "matrix.h"
 using namespace std;
@@ -23,12 +22,14 @@ public:
 
 void GaussianElimination::forward_phase()
 {
+    function<bool(double)> findNonZero = [](double val) -> bool {return val != 0;};
     for (int curr_row = 0; curr_row < matrix.rows(); curr_row++)
     {
         int pivot_col, pivot_row;
         for (int col = 0; col < matrix.cols(); col++)
         {
-            if (accumulate(matrix.col(col).begin(), matrix.col(col).end(), 0) != 0)
+            vector<double>::iterator nonZero_itr = find_if(matrix.col(col).begin(), matrix.col(col).end(), findNonZero);
+            if (nonZero_itr != matrix.col(col).end())
             {
                 pivot_col = col;
                 break;
