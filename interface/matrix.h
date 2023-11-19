@@ -6,6 +6,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "iterator.h"
+
 template<class T>
 class Matrix
 {
@@ -23,6 +25,10 @@ public:
     {return this->rows;}
     size_t cols() const
     {return this->cols;}
+
+    //iterators
+    Iterator<T> begin() const;
+    Iterator<T> end() const;
 
     //operations overloads
     Matrix operator+(const Matrix& other) const;

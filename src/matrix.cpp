@@ -1,9 +1,22 @@
 #include <vector>
 
 #include "matrix.h"
+#include "iterator.h"
 
-template<class T>
-Matrix<T> Matrix<T>::operator+(const Matrix& other) const
+template <class T>
+Iterator<T> Matrix<T>::begin() const
+{
+    return Iterator(this->matrix.begin());
+}
+
+template <class T>
+Iterator<T> Matrix<T>::end() const
+{
+    return Iterator(this->matrix.end());
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator+(const Matrix &other) const
 {
     Matrix<T> result(rows, cols);
     for (int row = 0; row < rows; row++)
@@ -11,8 +24,8 @@ Matrix<T> Matrix<T>::operator+(const Matrix& other) const
     return result;
 }
 
-template<class T>
-Matrix<T> Matrix<T>::operator-(const Matrix& other) const
+template <class T>
+Matrix<T> Matrix<T>::operator-(const Matrix &other) const
 {
     Matrix<T> result(rows, cols);
     for (int row = 0; row < rows; row++)
@@ -20,8 +33,8 @@ Matrix<T> Matrix<T>::operator-(const Matrix& other) const
     return result;
 }
 
-template<class T>
-Matrix<T> Matrix<T>::operator*(const T& k) const
+template <class T>
+Matrix<T> Matrix<T>::operator*(const T &k) const
 {
     Matrix<T> result(rows, cols);
     for (int row = 0; row < rows; row++)
@@ -29,8 +42,8 @@ Matrix<T> Matrix<T>::operator*(const T& k) const
     return result;
 }
 
-template<class T>
-Matrix<T> Matrix<T>::operator/(const T& k) const
+template <class T>
+Matrix<T> Matrix<T>::operator/(const T &k) const
 {
     Matrix<T> result(rows, cols);
     for (int row = 0; row < rows; row++)
@@ -38,13 +51,13 @@ Matrix<T> Matrix<T>::operator/(const T& k) const
     return result;
 }
 
-template<class T>
-inline std::vector<T> Matrix<T>::operator[](const int& row) const
+template <class T>
+inline std::vector<T> Matrix<T>::operator[](const int &row) const
 {
     return this->matrix[row];
 }
 
-template<class T>
+template <class T>
 std::vector<T> Matrix<T>::col(const int &col) const
 {
     if (col >= this->cols)
@@ -56,14 +69,14 @@ std::vector<T> Matrix<T>::col(const int &col) const
     return column;
 }
 
-template<class T>
-inline void Matrix<T>::swap(const int& row1, const int& row2)
+template <class T>
+inline void Matrix<T>::swap(const int &row1, const int &row2)
 {
     std::swap_ranges(matrix[row1].begin(), matrix[row1].end(), matrix[row2].begin());
 }
 
-template<class T>
-void Matrix<T>::populate(Matrix& mat)
+template <class T>
+void Matrix<T>::populate(Matrix &mat)
 {
     for (int i = 0; i < mat.rows; ++i)
     {
@@ -75,8 +88,8 @@ void Matrix<T>::populate(Matrix& mat)
     }
 }
 
-template<class T>
-void Matrix<T>::print(const Matrix& mat)
+template <class T>
+void Matrix<T>::print(const Matrix &mat)
 {
     for (int i = 0; i < mat.rows; ++i)
     {
