@@ -1,6 +1,7 @@
-#include "iterator.h"
 #include <vector>
 #include <iterator>
+
+#include "iterator.h"
 
 template<class T>
 inline std::vector<T>& Iterator<T>::operator*() const
