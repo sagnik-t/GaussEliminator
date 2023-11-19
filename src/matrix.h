@@ -14,11 +14,9 @@ private:
     std::vector<std::vector<T>> matrix;
 
 public:
-    Matrix(size_t rows, size_t cols) : rows(rows), cols(cols), matrix(rows, std::vector<T>(cols))
-    {}
-
-    Matrix(const std::vector<std::vector<T>>& v) : rows(v.size()), cols(v[0].size()), matrix(v)
-    {}
+    Matrix(size_t rows, size_t cols) : rows(rows), cols(cols), matrix(rows, std::vector<T>(cols)) {}
+ 
+    Matrix(const std::vector<std::vector<T>>& v) : rows(v.size()), cols(v[0].size()), matrix(v) {}
 
     //getters
     size_t rows() const
@@ -77,7 +75,7 @@ Matrix<T> Matrix<T>::operator/(const T& k) const
 }
 
 template<class T>
-std::vector<T> Matrix<T>::operator[](const int& row) const
+inline std::vector<T> Matrix<T>::operator[](const int& row) const
 {
     return this->matrix[row];
 }
@@ -91,13 +89,12 @@ std::vector<T> Matrix<T>::col(const int &col) const
     std::vector<T> column;
     for (int row = 0; row < this->rows; row++)
         column.push_back(this->matrix[row][col]);
-    
     return column;
 }
 
 //interchange columns
 template<class T>
-void Matrix<T>::swap(const int& row1, const int& row2)
+inline void Matrix<T>::swap(const int& row1, const int& row2)
 {
     std::swap_ranges(matrix[row1].begin(), matrix[row1].end(), matrix[row2].begin());
 }

@@ -11,6 +11,7 @@ class GaussianElimination
 private:
     Matrix<double> matrix;
     vector<pair<int, int>> pivots;
+    vector<pair<int, int>> frees;
 
 public:
     GaussianElimination(Matrix<double> matrix) : matrix(matrix)
@@ -18,6 +19,7 @@ public:
     
     void forward_phase();
     void backward_phase();
+    bool check_uniqueness();
 };
 
 void GaussianElimination::forward_phase()
