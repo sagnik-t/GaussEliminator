@@ -3,20 +3,20 @@
 #include <iterator>
 
 template<class T>
-std::vector<T>& Iterator<T>::operator*() const
+inline std::vector<T>& Iterator<T>::operator*() const
 {
     return *itr;
 }
 
 template<class T>
-Iterator<T> Iterator<T>::operator++()
+inline Iterator<T> Iterator<T>::operator++()
 {
     ++itr;
     return *this;
 }
 
 template<class T>
-bool Iterator<T>::operator!=(const Iterator<T> &other) const
+inline bool Iterator<T>::operator!=(const Iterator<T> &other) const
 {
     return this->itr != other.itr;
 }
