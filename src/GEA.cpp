@@ -31,3 +31,8 @@ void GaussianElimination::free_vars()
         }
     }
 }
+
+bool GaussianElimination::is_unique() const
+{
+    return frees.empty();
+}

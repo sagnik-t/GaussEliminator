@@ -24,6 +24,7 @@ public:
     void forward_phase();
     void backward_phase();
     void free_vars();
+    bool is_unique() const;
 };
 
 #endif
