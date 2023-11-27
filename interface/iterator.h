@@ -10,10 +10,10 @@ template<class T>
 class Iterator
 {
 private:
-    std::vector<std::vector<T>>::iterator itr;
+    typename std::vector<std::vector<T>>::iterator itr;
 
 public:
-    explicit Iterator(std::vector<std::vector<T>>::iterator itr) : itr(itr) {}
+    explicit Iterator(typename std::vector<std::vector<T>>::iterator itr) : itr(itr) {}
 
     std::vector<T>& operator*() const;
     Iterator<T> operator++();

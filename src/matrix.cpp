@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 #include "matrix.h"
 #include "iterator.h"
@@ -6,20 +7,20 @@
 template <class T>
 Iterator<T> Matrix<T>::begin() const
 {
-    return Iterator(this->matrix.begin());
+    return Iterator<T>(this->matrix.begin());
 }
 
 template <class T>
 Iterator<T> Matrix<T>::end() const
 {
-    return Iterator(this->matrix.end());
+    return Iterator<T>(this->matrix.end());
 }
 
 template <class T>
 Matrix<T> Matrix<T>::operator+(const Matrix &other) const
 {
-    Matrix<T> result(get_rows, get_cols);
-    for (int row = 0; row < get_rows; row++)
+    Matrix<T> result(this->get_rows(), this->get_cols());
+    for (int row = 0; row < this->get_rows(); row++)
         result.matrix[row] = this->matrix[row] + other.matrix[row];
     return result;
 }
@@ -27,8 +28,8 @@ Matrix<T> Matrix<T>::operator+(const Matrix &other) const
 template <class T>
 Matrix<T> Matrix<T>::operator-(const Matrix &other) const
 {
-    Matrix<T> result(get_rows, get_cols);
-    for (int row = 0; row < get_rows; row++)
+    Matrix<T> result(this->get_rows(), this->get_cols());
+    for (int row = 0; row < this->get_rows(); row++)
         result.matrix[row] = this->matrix[row] - other.matrix[row];
     return result;
 }
@@ -36,8 +37,8 @@ Matrix<T> Matrix<T>::operator-(const Matrix &other) const
 template <class T>
 Matrix<T> Matrix<T>::operator*(const T &k) const
 {
-    Matrix<T> result(get_rows, get_cols);
-    for (int row = 0; row < get_rows; row++)
+    Matrix<T> result(this->get_rows(), this->get_cols());
+    for (int row = 0; row < this->get_rows(); row++)
         result.matrix[row] = this->matrix[row] * k;
     return result;
 }
@@ -45,8 +46,8 @@ Matrix<T> Matrix<T>::operator*(const T &k) const
 template <class T>
 Matrix<T> Matrix<T>::operator/(const T &k) const
 {
-    Matrix<T> result(get_rows, get_cols);
-    for (int row = 0; row < get_rows; row++)
+    Matrix<T> result(this->get_rows(), this->get_cols());
+    for (int row = 0; row < this->get_rows(); row++)
         result.matrix[row] = this->matrix[row] / k;
     return result;
 }

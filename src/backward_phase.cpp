@@ -6,9 +6,8 @@ void GaussianElimination::backward_phase()
 {
     reverse(pivots.begin(), pivots.end());
 
-    for (int i = 0; i < pivots.size(); i++)
+    for (auto pivot : pivots)
     {
-        std::pair<int, int> pivot = pivots[i];
         int curr_row = pivot.first, curr_col = pivot.second;
 
         for (int row = 0; row < matrix.get_rows(); row++)
