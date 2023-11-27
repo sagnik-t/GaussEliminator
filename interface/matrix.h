@@ -18,13 +18,13 @@ private:
 public:
     Matrix(size_t rows, size_t cols) : rows(rows), cols(cols), matrix(rows, std::vector<T>(cols)) {}
  
-    Matrix(const std::vector<std::vector<T>>& v) : rows(v.size()), cols(v[0].size()), matrix(v) {}
+    Matrix(const std::vector<std::vector<T>>& v) : getrows(v.size()), getcols(v[0].size()), matrix(v) {}
 
     //getters
-    size_t rows() const
-    {return this->rows;}
-    size_t cols() const
-    {return this->cols;}
+    size_t getrows() const
+    {return this->getrows;}
+    size_t getcols() const
+    {return this->getcols;}
 
     //iterators
     Iterator<T> begin() const;

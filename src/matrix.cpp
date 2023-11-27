@@ -18,8 +18,8 @@ Iterator<T> Matrix<T>::end() const
 template <class T>
 Matrix<T> Matrix<T>::operator+(const Matrix &other) const
 {
-    Matrix<T> result(rows, cols);
-    for (int row = 0; row < rows; row++)
+    Matrix<T> result(getrows, getcols);
+    for (int row = 0; row < getrows; row++)
         result.matrix[row] = this->matrix[row] + other.matrix[row];
     return result;
 }
@@ -27,8 +27,8 @@ Matrix<T> Matrix<T>::operator+(const Matrix &other) const
 template <class T>
 Matrix<T> Matrix<T>::operator-(const Matrix &other) const
 {
-    Matrix<T> result(rows, cols);
-    for (int row = 0; row < rows; row++)
+    Matrix<T> result(getrows, getcols);
+    for (int row = 0; row < getrows; row++)
         result.matrix[row] = this->matrix[row] - other.matrix[row];
     return result;
 }
@@ -36,8 +36,8 @@ Matrix<T> Matrix<T>::operator-(const Matrix &other) const
 template <class T>
 Matrix<T> Matrix<T>::operator*(const T &k) const
 {
-    Matrix<T> result(rows, cols);
-    for (int row = 0; row < rows; row++)
+    Matrix<T> result(getrows, getcols);
+    for (int row = 0; row < getrows; row++)
         result.matrix[row] = this->matrix[row] * k;
     return result;
 }
@@ -45,8 +45,8 @@ Matrix<T> Matrix<T>::operator*(const T &k) const
 template <class T>
 Matrix<T> Matrix<T>::operator/(const T &k) const
 {
-    Matrix<T> result(rows, cols);
-    for (int row = 0; row < rows; row++)
+    Matrix<T> result(getrows, getcols);
+    for (int row = 0; row < getrows; row++)
         result.matrix[row] = this->matrix[row] / k;
     return result;
 }
@@ -60,11 +60,11 @@ inline std::vector<T> Matrix<T>::operator[](const int &row) const
 template <class T>
 std::vector<T> Matrix<T>::col(const int &col) const
 {
-    if (col >= this->cols)
+    if (col >= this->getcols)
         throw std::out_of_range("Column index out of bounds");
 
     std::vector<T> column;
-    for (int row = 0; row < this->rows; row++)
+    for (int row = 0; row < this->getrows; row++)
         column.push_back(this->matrix[row][col]);
     return column;
 }
@@ -78,9 +78,9 @@ inline void Matrix<T>::swap(const int &row1, const int &row2)
 template <class T>
 void Matrix<T>::populate(Matrix &mat)
 {
-    for (int i = 0; i < mat.rows; ++i)
+    for (int i = 0; i < mat.getrows; ++i)
     {
-        for (int j = 0; j < mat.cols; ++j)
+        for (int j = 0; j < mat.getcols; ++j)
         {
             std::cout << "[" << i << "][" << j << "]: ";
             std::cin >> mat.matrix[j][i];
@@ -91,9 +91,9 @@ void Matrix<T>::populate(Matrix &mat)
 template <class T>
 void Matrix<T>::print(const Matrix &mat)
 {
-    for (int i = 0; i < mat.rows; ++i)
+    for (int i = 0; i < mat.getrows; ++i)
     {
-        for (int j = 0; j < mat.cols; ++j)
+        for (int j = 0; j < mat.getcols; ++j)
             std::cout << mat[i][j] << " ";
         std::cout << std::endl;
     }

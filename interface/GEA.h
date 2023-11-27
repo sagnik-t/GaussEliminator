@@ -4,6 +4,7 @@
 #define GEA_H
 
 #include <iostream>
+#include <utility>
 #include <vector>
 #include <algorithm>
 
@@ -19,7 +20,7 @@ private:
     std::vector<std::pair<int, int>> frees;
 
 public:
-    GaussianElimination(Matrix<double> matrix) : matrix(matrix)
+    explicit GaussianElimination(Matrix<double> matrix) : matrix(std::move(matrix))
     {}
     
     void forward_phase();

@@ -11,7 +11,7 @@ void GaussianElimination::backward_phase()
         std::pair<int, int> pivot = pivots[i];
         int curr_row = pivot.first, curr_col = pivot.second;
 
-        for (int row = 0; row < matrix.rows(); row++)
+        for (int row = 0; row < matrix.getrows(); row++)
         {
             if (row != curr_row)
             {
