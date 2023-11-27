@@ -12,7 +12,7 @@ void GaussianElimination::forward_phase()
         int pivot_col, pivot_row;
         for (int col = 0; col < matrix.get_cols(); col++)
         {
-            std::vector<double>::iterator nonZero_itr = find_if(matrix.col(col).begin(), matrix.col(col).end(), findNonZero);
+            std::vector<double>::iterator nonZero_itr = find_if(matrix.col(col).begin(), matrix.col(col).end(), findNonZero); // NOLINT(*-use-auto)
             if (nonZero_itr != matrix.col(col).end())
             {
                 pivot_col = col;
