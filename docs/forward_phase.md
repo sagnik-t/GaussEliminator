@@ -1,15 +1,15 @@
 ### FORWARD_PHASE(matrix):
 
-	for curr_row=0 to matrix.rows - 1:
+	for curr_row=0 to matrix.get_rows - 1:
 
 ##### finding the pivot column
-		for col=0 to matrix.cols - 1:
+		for col=0 to matrix.get_cols - 1:
 			if matrix[[col]].sum() != 0:
 				pivot_col = col
 				break
 
 ##### finding the pivot
-		for row=curr_row to matrix.rows - 1:
+		for row=curr_row to matrix.get_rows - 1:
 			if matrix[row][pivot_col] != 0
 				pivot = row
 				break
@@ -18,7 +18,7 @@
 		SWAP(matrix[curr_row], matrix[pivot])
 
 ##### creating zeroes
-		for row=curr_row+1 to matrix.rows - 1:
+		for row=curr_row+1 to matrix.get_rows - 1:
 			scale = matrix[row][pivot_col]/matrix[pivot][pivot_col]
 			matrix[row] = matrix[row] - scale * matrix[pivot]
 

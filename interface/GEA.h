@@ -20,7 +20,7 @@ private:
     std::vector<std::pair<int, int>> frees;
 
 public:
-    explicit GaussianElimination(Matrix<double> matrix) : matrix(std::move(matrix))
+    GaussianElimination(Matrix<double> matrix) : matrix(std::move(matrix))
     {}
     
     void forward_phase();

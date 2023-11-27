@@ -4,7 +4,7 @@
 
 void GaussianElimination::free_vars()
 {
-    for (int col = 0; col < matrix.getcols(); col++)
+    for (int col = 0; col < matrix.get_cols(); col++)
     {
         bool hasPivot = false;
         for (const auto& pivot : pivots)
@@ -19,7 +19,7 @@ void GaussianElimination::free_vars()
         if (!hasPivot)
         {
             int freeRowIndex = -1;
-            for (int row = 0; row < matrix.getrows(); row++)
+            for (int row = 0; row < matrix.get_rows(); row++)
             {
                 if (matrix[row][col] != 0)
                 {

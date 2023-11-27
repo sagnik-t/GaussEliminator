@@ -6,7 +6,7 @@
 
 ##### Creating zeroes
         curr_row, curr_col = pivot.first, pivot.second
-        for row=0 to matrix.rows - 1:
+        for row=0 to matrix.get_rows - 1:
             if row != curr_row:
                 scale = matrix[row][curr_col]/matrix[curr_row][curr_col]
                 matrix[row] = matrix[row] - scale * matrix[curr_row]
