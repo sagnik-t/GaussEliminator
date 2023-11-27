@@ -14,6 +14,7 @@ class GaussianElimination
 {
 private:
     Matrix<double> matrix;
+    std::vector<double> values;
     std::vector<std::pair<int, int>> pivots;
     std::vector<std::pair<int, int>> frees;
 
