@@ -27,7 +27,7 @@ void GaussianElimination::free_vars()
                     break;
                 }
             }
-            frees.push_back(std::make_pair(freeRowIndex, col));
+            frees.emplace_back(freeRowIndex, col);
         }
     }
 }
